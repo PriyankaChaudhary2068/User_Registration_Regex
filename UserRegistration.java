@@ -23,20 +23,41 @@ public class UserRegistration {
 		     else
 		    	 System.err.println(firstName+" is an Invalid First Name");
 		     
-	}
-	
-	
-       public static void main(String[] args) {
+       }
+       
+       public static void checkValidLastName(String lastName) {
+
+   	         boolean isLastName;
+   	         String lastNameRegex = "[A-Z]{1}[a-z]{2,}";
+   	         Pattern pattern = Pattern.compile(lastNameRegex);
+   	         if (lastName == null) {
+   	        	 isLastName = false;
+   	         }
+   	         Matcher matcher = pattern.matcher(lastName);
+   	         isLastName = matcher.matches();
+
+   	         if (isLastName)
+   	        	 System.out.println(lastName + " is Valid Last Name");
+   	         else
+   	        	 System.err.println(lastName + " is an Invalid Last Name");
+   		
+   	}
+
+	   public static void main(String[] args) {
 		
 		  System.out.println(" Welcome To User Registration Program ");
 		  
 		  Scanner scanner = new Scanner(System.in);
 			
-			System.out.println("Enter Your First Name :");
-			String firstName = scanner.next();
-			checkValidFirstName(firstName);
+		  System.out.println("Enter Your First Name :");
+		  String firstName = scanner.next();
+		  checkValidFirstName(firstName);
 			
-			scanner.close();
+		  System.out.println("Enter Your Last Name :");
+		  String lastName = scanner.next();
+		  checkValidLastName(lastName);
+			
+		  scanner.close();
 			
 		}
 

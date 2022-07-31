@@ -21,7 +21,7 @@ public class UserRegistration {
 		     if(isFirstName)
 		    	 System.out.println(firstName+" is a Valid First Name");
 		     else
-		    	 System.err.println(firstName+" is an Invalid First Name");
+		    	 System.out.println(firstName+" is an Invalid First Name");
 		     
        }
        
@@ -39,7 +39,7 @@ public class UserRegistration {
    	         if (isLastName)
    	        	 System.out.println(lastName + " is Valid Last Name");
    	         else
-   	        	 System.err.println(lastName + " is an Invalid Last Name");
+   	        	 System.out.println(lastName + " is an Invalid Last Name");
    		
    	}
        
@@ -55,20 +55,39 @@ public class UserRegistration {
    		     isEmail =  matcher.matches();
            
    		     if(isEmail)
-   		    	 System.out.println(email+" is a Valid Email address\n");
+   		    	 System.out.println(email+" is a Valid Email address");
    		     else
    		    	 System.out.println(email+" is an Invalid Email address");
    	}
          
          
+         public static void checkValidMobileNumber(String mobileNumber){
+     		
+     		boolean isMobileNumber;
+     		String mobileRegex = "^[0-9]{2}\\s{1}[0-9]{10}$";
+     		Pattern pattern = Pattern.compile(mobileRegex);
+     		if (mobileNumber == null) {
+                 isMobileNumber = false;
+             }
+             Matcher matcher = pattern.matcher(mobileNumber);
+             isMobileNumber =  matcher.matches();
+             
+             if(isMobileNumber)
+     			System.out.println(mobileNumber+" is a Valid  Mobile Number");
+     		else
+     			System.out.println(mobileNumber+" is an Invalid Mobile Number");
+     	}
+     	             
+     	
 
-	   public static void main(String[] args) {
+         
+          public static void main(String[] args) {
 		
 		  System.out.println(" Welcome To User Registration Program ");
 		  
 		  Scanner scanner = new Scanner(System.in);
 			
-		  System.out.println("Enter Your First Name : \n");
+		  System.out.println("Enter Your First Name : ");
 		  String firstName = scanner.next();
 		  checkValidFirstName(firstName);
 			
@@ -76,18 +95,19 @@ public class UserRegistration {
 		  String lastName = scanner.next();
 		  checkValidLastName(lastName);
 		  
-		  System.out.println("Enter Your Email Address");
+		  System.out.println("Enter Your Email Address:");
 		  String email = scanner.next();
 		  checkValidEmail(email);
-			
-			
-		scanner.close();
+		  
+		  System.out.println("Enter Your Mobile Number:");
+		  String mobileNumber = scanner.nextLine();
+		  checkValidMobileNumber(mobileNumber);
+
+		  scanner.close();
 			
 	   }
-
-			
-
-   }
+	   
+}
 
 	
 			

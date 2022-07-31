@@ -69,10 +69,10 @@ public class UserRegistration {
      		if (mobileNumber == null) {
                  isMobileNumber = false;
              }
-             Matcher matcher = pattern.matcher(mobileNumber);
-             isMobileNumber =  matcher.matches();
+                Matcher matcher = pattern.matcher(mobileNumber);
+                isMobileNumber =  matcher.matches();
              
-             if(isMobileNumber)
+                if(isMobileNumber)
      			System.out.println(mobileNumber+" is a Valid  Mobile Number");
      		else
      			System.out.println(mobileNumber+" is an Invalid Mobile Number");
